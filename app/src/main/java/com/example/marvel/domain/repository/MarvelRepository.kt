@@ -1,8 +1,13 @@
-package com.example.marvel.domain.model
+package com.example.marvel.domain.repository
+
+import android.app.Application
+import com.example.marvel.domain.model.Character
+import com.example.marvel.util.Resource
+import kotlinx.coroutines.flow.Flow
 
 interface MarvelRepository {
 
     suspend fun getMarvelCharacters(
         fetchFromRemote: Boolean,
-        query: String)
+        query: String): Flow<Resource<List<Character>>>
 }
